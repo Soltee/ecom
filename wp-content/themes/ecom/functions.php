@@ -47,20 +47,20 @@ function ecom_theme_supports(){
     // Woocommerce
     if( class_exists( 'woocommerce' )){
 		add_theme_support( 'woocommerce'
-		    // , array(
-			// 	'thumbnail_image_width' => 150,
-			// 	'single_image_width'    => 300,
+		    , array(
+				'thumbnail_image_width' => 300,
+				'single_image_width'    => 300,
 		
-			// 	'product_grid'          => array(
-			// 		'default_rows'    => 3,
-			// 		'min_rows'        => 2,
-			// 		'max_rows'        => 8,
-			// 		'default_columns' => 4,
-			// 		'min_columns'     => 1,
-			// 		'max_columns'     => 3,
-			// 	),
+				'product_grid'          => array(
+					'default_rows'    => 3,
+					'min_rows'        => 2,
+					'max_rows'        => 8,
+					'default_columns' => 3,
+					'min_columns'     => 1,
+					'max_columns'     => 3,
+				),
 
-			// ) 
+			) 
 		);
 
 		// Single product Zoom, slider, lightbox ENABLED
@@ -68,14 +68,29 @@ function ecom_theme_supports(){
 		add_theme_support( 'wc-product-gallery-lightbox' );
 		add_theme_support( 'wc-product-gallery-slider' );
 
-		/** Add Div for products */
-		// add_action( 'woocommerce_before_main_content', 'products_div_wrapper' );
-		// function products_div_wrapper(){
+		/**
+		 * Show cart contents / total Ajax
+		 */
+		add_filter( 'woocommerce_add_to_cart_fragments', 'p_ecom_header_add_to_cart_fragment' );
 
-		// }
+		function p_ecom_header_add_to_cart_fragment( $fragments ) {
+			global $woocommerce;
+
+			ob_start();
+
+			?>
+			<span class="items-count ml-2 bg-green-500 text-white p-1 rounded">
+				<?php echo  WC()->cart->get_cart_contents_count(); ?> 
+			</span>
+			<?php
+			$fragments['span.items-count'] = ob_get_clean();
+			return $fragments;
+		}
 
         /** Remove Sidebar */
-        // remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar' , 10 );
+		remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar' , 10 );
+		/** Remove Ordering */
+        remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering' , 30 );
         /** Remove Page Name */
         // remove_action( 'woocommerce_archive_description', 'woocommerce_taxonomy_archive_description' , 10 );
         // remove_action( 'woocommerce_archive_description', 'woocommerce_product_archive_description' , 10 );

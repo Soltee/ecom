@@ -23,20 +23,23 @@
                     <li class="ml-5">
                         <a href="<?php echo esc_url(get_site_url() . '/cart'); ?>" title="">
                             Cart
+                            <span class="items-count ml-2 bg-green-500 text-white p-1 rounded">
+                                <?php echo  WC()->cart->get_cart_contents_count(); ?> 
+                            </span>
                         </a>
                     </li>
                     <?php 
                         if(class_exists('woocommerce')){
 
-                        if(is_user_logged_in()){
+                        //if(is_user_logged_in()){
                     ?>
 						<li class="ml-5">
 							<a href="<?php echo esc_url(get_site_url() . '/my-account'); ?>" title="">
 								Account
 							</a>
 						</li>
-					<?php } else { ?>
-						<li class="ml-5">
+					<?php// } else { ?>
+						<!-- <li class="ml-5">
 							<a href="<?php echo esc_url(wp_login_url()); ?>" title="">
 								Login
 							</a>
@@ -45,9 +48,10 @@
 							<a href="<?php echo esc_url(wp_registration_url()); ?>" title="">
 								Register
 							</a>
-						</li>
+						</li> -->
 
-					<?php } }  ?>
+                    <?php //} 
+                        }  ?>
 
                     
                 </ul>
