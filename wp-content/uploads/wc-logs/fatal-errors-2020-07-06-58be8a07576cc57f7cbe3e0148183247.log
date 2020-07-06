@@ -1,0 +1,12 @@
+2020-07-06T09:33:50+00:00 CRITICAL Uncaught Error: Call to undefined function get_current_site() in C:\xampp\htdocs\ecom\wp-content\themes\ecom\header.php:12
+Stack trace:
+#0 C:\xampp\htdocs\ecom\wp-includes\template.php(723): require_once()
+#1 C:\xampp\htdocs\ecom\wp-includes\template.php(672): load_template('C:\\xampp\\htdocs...', true)
+#2 C:\xampp\htdocs\ecom\wp-includes\general-template.php(41): locate_template(Array, true)
+#3 C:\xampp\htdocs\ecom\wp-content\themes\ecom\front-page.php(1): get_header()
+#4 C:\xampp\htdocs\ecom\wp-includes\template-loader.php(106): include('C:\\xampp\\htdocs...')
+#5 C:\xampp\htdocs\ecom\wp-blog-header.php(19): require_once('C:\\xampp\\htdocs...')
+#6 C:\xampp\htdocs\ecom\index.php(17): require('C:\\xampp\\htdocs...')
+#7 {main}
+  thrown in C:\xampp\htdocs\ecom\wp-content\themes\ecom\header.php on line 12
+
