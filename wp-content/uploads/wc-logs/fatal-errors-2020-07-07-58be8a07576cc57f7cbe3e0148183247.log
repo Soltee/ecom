@@ -1,0 +1,6 @@
+2020-07-07T11:04:26+00:00 CRITICAL syntax error, unexpected '?>' in C:\xampp\htdocs\ecom\wp-content\themes\ecom\page-my-account.php on line 5
+
+2020-07-07T12:30:24+00:00 CRITICAL syntax error, unexpected 'if' (T_IF) in C:\xampp\htdocs\ecom\wp-content\themes\ecom\woocommerce\myaccount\my-address.php on line 22
+
+2020-07-07T13:38:52+00:00 CRITICAL syntax error, unexpected '$order' (T_VARIABLE) in C:\xampp\htdocs\ecom\wp-content\themes\ecom\woocommerce\order\order-details.php on line 20
+
